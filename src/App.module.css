@@ -1,4 +1,11 @@
-.back_button {
-  width: 30px;
-  padding: 10px 10px;
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.sign_up {
+  width: 700px;
+  box-shadow: 10px 5px 20px #cecece;
+  border-radius: 10px;
 }

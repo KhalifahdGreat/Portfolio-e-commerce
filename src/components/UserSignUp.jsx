@@ -6,7 +6,7 @@ import styles from "../App.module.css";
 
 export const UserSignUp = () => {
   return (
-    <div>
+    <div className={styles.sign_up}>
       <div className={styles.nav}>
         <div className={styles.user}>
           <h1 className>User</h1>
