@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap");
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 .container {
   height: 100vh;
@@ -10,8 +12,103 @@
   justify-content: center;
 }
 .sign_up {
-  display: flex;
   width: 700px;
-  box-shadow: 10px 5px 20px #cecece;
+  box-shadow: 3px 5px 20px #cecece;
   border-radius: 10px;
+  padding: 30px;
 }
+.nav_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.nav {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+<<<<<<< HEAD
+=======
+.user {
+  width: 65px;
+  display: flex;
+  justify-content: space-between;
+}
+.user_name {
+  color: #3c8dbc;
+  font-size: 16px;
+}
+.back {
+  font-size: 16px;
+  font-weight: 400;
+  color: #959595;
+}
+.back_button {
+  cursor: pointer;
+  color: #3c8dbc;
+}
+.header_wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+}
+.sign_up_header {
+}
+.header {
+  font-size: 35px;
+  color: #3c8dbc;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.message {
+  color: #aeaeae;
+  font-size: 10px;
+  text-align: center;
+}
+.form_holder {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.form {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-between;
+}
+input {
+  border: none;
+  border-bottom: 1px solid #cecece;
+  padding: 5px;
+  padding-left: 0px;
+  transition: all ease-in-out 0.3s;
+}
+input::placeholder {
+  color: #bdbdbd;
+  font-size: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+input:hover {
+  cursor: pointer;
+  border-color: #3c8dbc;
+}
+.submit_btn {
+  border: none;
+  width: 120px;
+  background-color: #3c8dbc;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+  transition: all ease-in-out 0.3s;
+}
+.submit_btn:hover {
+  background-color: #3c8dbcaa;
+  transform: scale(1.07, 1.07);
+}
+>>>>>>> a280a0668933f6a8339b2837da5a8769235c333a
