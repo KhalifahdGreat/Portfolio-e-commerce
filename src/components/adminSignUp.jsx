@@ -1,4 +1,3 @@
-import React from "react";
 import "./adminSignUp.css";
 
 export default function AdminSignUp() {
