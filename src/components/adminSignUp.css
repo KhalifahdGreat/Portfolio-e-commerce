@@ -73,6 +73,7 @@
   border: 0px;
   padding: 10px 30px;
   border-radius: 3px;
+  width: 15%;
 }
 .signIn:hover {
   background-color: beige;
