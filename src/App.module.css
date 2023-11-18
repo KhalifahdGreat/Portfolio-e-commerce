@@ -28,8 +28,6 @@
   justify-content: space-between;
   align-items: center;
 }
-<<<<<<< HEAD
-=======
 .user {
   width: 65px;
   display: flex;
@@ -111,4 +109,3 @@ input:hover {
   background-color: #3c8dbcaa;
   transform: scale(1.07, 1.07);
 }
->>>>>>> a280a0668933f6a8339b2837da5a8769235c333a
