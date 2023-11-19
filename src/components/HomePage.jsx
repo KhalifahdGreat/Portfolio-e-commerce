@@ -1,7 +1,8 @@
-import Axios from "axios";
+import { Products } from "./Products";
 export const HomePage = () => {
-  Axios.get("https://dummyjson.com/products").then((res) =>
-    console.log(res.data.products[0])
+  return (
+    <div>
+      <Products />
+    </div>
   );
-  return <div>I am Homepage</div>;
 };
