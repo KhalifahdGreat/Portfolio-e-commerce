@@ -1,0 +1,44 @@
+.input {
+  margin-top: 100px;
+  padding: 10px;
+  border: 1px solid #3c8dbc;
+  text-align: center;
+  border-left: 0px;
+  border-right: 0px;
+}
+.addHead {
+  text-align: center;
+}
+.name {
+  text-align: center;
+}
+.price {
+  text-align: center;
+}
+.productName {
+  width: 40%;
+}
+.productPrice {
+  margin-top: 20px;
+  width: 40%;
+}
+.prompt {
+  margin-top: 20px;
+}
+.file {
+  border-bottom: 0px;
+  width: 20%;
+}
+.sub {
+  text-align: center;
+}
+.submit {
+  padding: 10px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: #3c8dbc;
+  color: white;
+}
+.submit:hover {
+  background-color: purple;
+}

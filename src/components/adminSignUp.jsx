@@ -4,6 +4,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Link } from "react-router-dom";
 
 export default function AdminSignUp() {
   const validationSchema = yup.object().shape({
@@ -33,7 +34,9 @@ export default function AdminSignUp() {
         <div className="back">
           <span>Admin</span>
           <span>
-            <FontAwesomeIcon className="back_btn" icon={faArrowLeft} /> Back
+            <Link className="backLink" to={"../product"}>
+              <FontAwesomeIcon className="back_btn" icon={faArrowLeft} /> Back
+            </Link>
           </span>
         </div>
         <h1 className="signHeader">Admin SignUp</h1>
