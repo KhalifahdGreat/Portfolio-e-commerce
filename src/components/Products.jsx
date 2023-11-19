@@ -1,17 +1,28 @@
 import styles from "../App.module.css";
+import { useState } from "react";
 import { Navigation } from "./Navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
-
+import { useContext } from "react";
+import { AppContext } from "../App";
 import Item from "./Item";
 import { Link } from "react-router-dom";
+import { Shopping_cart } from "./ShopCart";
 export const Products = () => {
+  const cartOpenHandler = () => {};
+  const { amount } = useContext(AppContext);
+
   return (
     <div className={styles.shop_wrapper}>
       <Navigation
         name={"Ecommerce"}
         icon={
-          <FontAwesomeIcon icon={faBagShopping} className={styles.shop_bag} />
+          <button onClick={cartOpenHandler} className={styles.shopping_cart}>
+            <div className={styles.shopping_cart_notification}>
+              <span className={styles.shopping_cart_message}>{amount}</span>
+            </div>
+            <FontAwesomeIcon icon={faBagShopping} className={styles.shop_bag} />
+          </button>
         }
         button={
           <Link to={"../admin"}>
@@ -26,6 +37,9 @@ export const Products = () => {
       />
       {/* Shopping items */}
       <Item />
+      <div className={styles.shop_cart_module}>
+        <Shopping_cart />
+      </div>
     </div>
   );
 };
