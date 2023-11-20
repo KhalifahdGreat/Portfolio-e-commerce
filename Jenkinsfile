@@ -39,17 +39,17 @@ pipeline {
         // Additional stages as needed (e.g., deployment)
     }
 
-    post {
-        always {
-            // Clean up or perform additional actions after the pipeline
-        }
+    // post {
+    //     always {
+    //         // Clean up or perform additional actions after the pipeline
+    //     }
 
-        success {
-            // Actions to be taken if the pipeline succeeds
-        }
+    //     success {
+    //         // Actions to be taken if the pipeline succeeds
+    //     }
 
-        failure {
-            // Actions to be taken if the pipeline fails
-        }
-    }
+    //     failure {
+    //         // Actions to be taken if the pipeline fails
+    //     }
+    // }
 }
