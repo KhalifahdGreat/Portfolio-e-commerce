@@ -4,13 +4,10 @@ import { Products } from "./components/Products";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminSignUp from "./components/adminSignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-<<<<<<< HEAD
 import AdminPage from "./components/adminPage";
-=======
 import { useState, createContext } from "react";
 import { useToggle } from "./useToggle";
 export const AppContext = createContext();
->>>>>>> c297a740612e0e335d8024535ff49fd4a4a5494d
 function App() {
   const client = new QueryClient({
     defaultOptions: {
@@ -23,22 +20,6 @@ function App() {
   const [state, toggle] = useToggle();
   const [selectedItems, setSelectedItems] = useState([]);
   return (
-<<<<<<< HEAD
-    <QueryClientProvider client={client}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<UserSignUp />} />
-          <Route path="/homepage" element={<HomePage />} />
-          <Route path="/admin" element={<AdminSignUp />} />
-          <Route path="/adminPage" element={<AdminPage />} />
-          <Route path="/product" element={<Products />} />
-          <Route path="/login" element={<UserSignUp />} />
-          <Route path="*" element={<h1>Error 404</h1>} />
-        </Routes>
-      </Router>
-    </QueryClientProvider>
-=======
     <AppContext.Provider
       value={{
         amount,
@@ -55,6 +36,7 @@ function App() {
             <Route path='/signup' element={<UserSignUp />} />
             <Route path='/homepage' element={<HomePage />} />
             <Route path='/admin' element={<AdminSignUp />} />
+            <Route path='/adminpage' element={<AdminPage />} />
             <Route path='/product' element={<Products />} />
             <Route path='/login' element={<UserSignUp />} />
             <Route path='*' element={<h1>Error 404</h1>} />
@@ -62,7 +44,6 @@ function App() {
         </Router>
       </QueryClientProvider>
     </AppContext.Provider>
->>>>>>> c297a740612e0e335d8024535ff49fd4a4a5494d
   );
 }
 
