@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define environment variables if needed
-        NODEJS_HOME = tool 'NodeJS' // Make sure you have NodeJS tool configured in Jenkins
+        NODEJS_HOME = tool 'eComm' // Make sure you have NodeJS tool configured in Jenkins
         PATH = "$NODEJS_HOME/bin:$PATH"
     }
 
