@@ -5,23 +5,52 @@ import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext } from "react";
 import { AppContext } from "../App";
 
-export const ItemCard = ({ image, title, price }) => {
+export const ItemCard = ({ image, title, price, cartItem, id }) => {
   const [itemNumber, setItemNumber] = useState(0);
   const [hasBeenClicked, setHasBeenClicked] = useState(false);
-  const { amount, setAmount } = useContext(AppContext);
+  const { setAmount, setSelectedItems } = useContext(AppContext);
 
   const addHandler = () => {
     if (!hasBeenClicked) {
       setItemNumber((prev) => prev + 1);
       setAmount((prev) => prev + 1);
       setHasBeenClicked(true);
+      cartItem();
+      setSelectedItems((prevItems) => {
+        const updatedItems = prevItems.map((item) =>
+          item.id === id ? { ...item, Units: 1 } : item
+        );
+        console.log(updatedItems);
+        return updatedItems;
+      });
     } else {
       setItemNumber((prev) => prev + 1);
+      setSelectedItems((prevItems) => {
+        const updatedItems = prevItems.map((item) =>
+          item.id === id ? { ...item, Units: itemNumber + 1 } : item
+        );
+        console.log(updatedItems);
+        return updatedItems;
+      });
     }
+
+    // Add to cart
   };
+
   const deductHandler = () => {
     if (itemNumber > 0) {
       setItemNumber(itemNumber - 1);
+
+      setSelectedItems((prevItems) => {
+        const updatedItems = prevItems.map((item) =>
+          item.id === id
+            ? { ...item, Units: Math.max(item.Units - 1, 0) }
+            : item
+        );
+        console.log(updatedItems);
+        return updatedItems.filter((item) => item.Units > 0); // Remove items with 0 Units
+      });
+
       if (itemNumber === 1) {
         // Decrease amount when itemNumber reaches zero
         setAmount((prev) => Math.max(prev - 1, 0));

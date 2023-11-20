@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminSignUp from "./components/adminSignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState, createContext } from "react";
-
+import { useToggle } from "./useToggle";
 export const AppContext = createContext();
 function App() {
   const client = new QueryClient({
@@ -16,8 +16,18 @@ function App() {
   });
 
   const [amount, setAmount] = useState(0);
+  const [state, toggle] = useToggle();
+  const [selectedItems, setSelectedItems] = useState([]);
   return (
-    <AppContext.Provider value={{ amount, setAmount }}>
+    <AppContext.Provider
+      value={{
+        amount,
+        setAmount,
+        state,
+        toggle,
+        selectedItems,
+        setSelectedItems,
+      }}>
       <QueryClientProvider client={client} v>
         <Router>
           <Routes>
