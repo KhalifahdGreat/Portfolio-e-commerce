@@ -2,7 +2,8 @@ import styles from "../App.module.css";
 import Axios from "axios";
 import { ItemCard } from "./ItemCard";
 import { useQuery } from "@tanstack/react-query";
-
+import { useContext } from "react";
+import { AppContext } from "../App";
 const Item = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["product"],
@@ -13,6 +14,8 @@ const Item = () => {
     },
   });
 
+  const { setSelectedItems } = useContext(AppContext);
+
   if (isLoading) {
     return (
       <div className={styles.loading_wrapper}>
@@ -21,6 +24,14 @@ const Item = () => {
     );
   }
 
+  const cartItemAddHandler = (item) => {
+    setSelectedItems((prevItems) => {
+      const updatedItems = [...prevItems, item];
+      console.log(updatedItems);
+      return updatedItems;
+    });
+  };
+
   return (
     <div className={styles.item}>
       <div className={styles.item_wrapper}>
@@ -28,7 +39,6 @@ const Item = () => {
           <h1 className={styles.title}>Shop Products</h1>
         </div>
         {/* display items */}
-
         <div className={styles.item_product_wrapper}>
           <ul className={styles.items}>
             {/* map through products and create a list of item cards*/}
@@ -38,6 +48,8 @@ const Item = () => {
                   image={prod?.images[0]}
                   title={prod?.title}
                   price={prod?.price}
+                  cartItem={() => cartItemAddHandler(prod)}
+                  id={prod.id}
                 />
               </li>
             ))}
