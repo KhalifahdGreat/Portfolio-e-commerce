@@ -30,8 +30,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'mkdir /var/www/eCommerce'
-                sh 'cp -r ./build/* /var/www/eCommerce/html'
+                sh 'sudo mkdir /var/www/eCommerce'
+                sh 'sudo cp -r ./build/* /var/www/eCommerce/html'
             }
         }
 
