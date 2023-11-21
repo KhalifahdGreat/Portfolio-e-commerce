@@ -30,25 +30,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'sudo mkdir /var/www/eCommerce'
+                sh 'sudo mkdir -p /var/www/eCommerce'
                 sh 'sudo cp -r ./build/* /var/www/eCommerce/html'
+                sh 'sudo chown -R www-data:www-data /var/www/eCommerce/html'
             }
         }
 
-        // Additional stages as needed (e.g., deployment)
+       
     }
-
-    // post {
-    //     always {
-    //         // Clean up or perform additional actions after the pipeline
-    //     }
-
-    //     success {
-    //         // Actions to be taken if the pipeline succeeds
-    //     }
-
-    //     failure {
-    //         // Actions to be taken if the pipeline fails
-    //     }
-    // }
 }
