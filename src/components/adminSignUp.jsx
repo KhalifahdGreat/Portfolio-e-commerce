@@ -43,6 +43,7 @@ export default function AdminSignUp() {
         <p className="greeting">Hello, sign in to the admin account</p>
         <form onSubmit={handleSubmit(onSubmit)} className="">
           <div className="email">
+            {isValid}
             <input
               placeholder={errors.email ? errors.email.message : "Enter Email"}
               {...register("email")}

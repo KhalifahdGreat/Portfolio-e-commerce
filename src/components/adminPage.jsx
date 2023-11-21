@@ -1,11 +1,6 @@
 import React from "react";
-import { Products } from "./Products";
 import styles from "../App.module.css";
 import { Navigation } from "./Navigation";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
-import Item from "./Item";
 import "./adminPage.css";
 import Axios from "axios";
 import { ItemCard } from "./ItemCard";
