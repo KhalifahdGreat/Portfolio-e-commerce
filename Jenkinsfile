@@ -28,6 +28,12 @@ pipeline {
                 sh 'npm run build'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'mkdir /var/www/eCommerce'
+                sh 'cp -r ./build/* /var/www/eCommerce/html'
+            }
+        }
 
         // Additional stages as needed (e.g., deployment)
     }
