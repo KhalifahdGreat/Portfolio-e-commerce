@@ -33,6 +33,7 @@ pipeline {
                 sh 'sudo mkdir -p /var/www/eCommerce/html'
                 sh 'sudo cp -r ./build/* /var/www/eCommerce/html'
                 sh 'sudo chown -R www-data:www-data /var/www/eCommerce/html'
+                sh 'sudo systemctl restart nginx'
             }
         }
 
