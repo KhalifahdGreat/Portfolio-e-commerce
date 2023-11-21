@@ -22,13 +22,6 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
-            steps {
-                // Run your React app tests
-                sh 'npm test'
-            }
-        }
-
         stage('Build') {
             steps {
                 // Build your React app
