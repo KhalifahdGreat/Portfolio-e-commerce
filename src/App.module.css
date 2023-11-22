@@ -217,7 +217,7 @@ input[type="password"] {
 }
 
 .card {
-  width: 250px;
+  width: 280px;
   height: 350px;
   box-shadow: 3px 5px 20px #cecece;
   background-color: #0b0b0b;
@@ -254,7 +254,7 @@ input[type="password"] {
 }
 .items {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   /* Adjust the gap between items as needed */
   list-style: none;
@@ -266,12 +266,12 @@ input[type="password"] {
   color: #fff;
 }
 .item_price {
-  font-size: 25px;
+  font-size: 20px;
   color: #00a2ffaa;
 }
 .item_shop {
-  width: 60px;
-  padding: 10px 10px;
+  width: 40px;
+  padding: 7px 10px;
   color: #0b0b0b;
   border: none;
   background-color: #fff;
@@ -285,20 +285,20 @@ input[type="password"] {
   font-size: 20px;
 }
 .quantity_holder {
-  width: 180px;
+  width: 130px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .quantity_holder_115px {
-  width: 115px;
+  width: 85px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .quantity_wrapper {
-  width: 50px;
-  height: 43px;
+  width: 40px;
+  padding: 7px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -393,7 +393,7 @@ input[type="password"] {
   position: fixed;
   top: 0;
   right: 0;
-  width: 550px;
+  width: 400px;
   height: 100vh;
   background-color: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
@@ -494,24 +494,24 @@ input[type="password"] {
   border-radius: 10px;
 }
 .cart_item_image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
   object-fit: cover;
 }
 .cart_item_price {
-  font-size: 25px;
+  font-size: 20px;
   color: #3c8dbc;
 }
 .cart_item_units {
-  font-size: 15px;
+  font-size: 10px;
   color: #003cff;
 }
 .cart_item_info {
   height: 100%;
 }
 .cart_item_title {
-  font-size: 25px;
+  font-size: 15px;
 }
 .cart_item_remove {
   border: none;
