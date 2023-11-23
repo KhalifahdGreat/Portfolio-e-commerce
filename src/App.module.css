@@ -222,7 +222,6 @@ input[type="password"] {
   height: 350px;
   box-shadow: 3px 5px 20px #cecece;
   background-color: #0b0b0b;
-  color: #fff;
   border-radius: 20px;
   transition: all linear 0.3s;
 }
@@ -270,6 +269,7 @@ input[type="password"] {
   font-size: 20px;
   color: #00a2ffaa;
 }
+
 .item_shop {
   width: 40px;
   padding: 7px 10px;
@@ -277,6 +277,9 @@ input[type="password"] {
   border: none;
   background-color: #fff;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all ease-in-out 0.3s;
 }
 .item_shop:hover {
@@ -284,6 +287,10 @@ input[type="password"] {
 }
 .item_add_shop {
   font-size: 20px;
+}
+.item_shop_btn {
+  background: none;
+  border: none;
 }
 .quantity_holder {
   width: 130px;
@@ -299,7 +306,7 @@ input[type="password"] {
 }
 .quantity_wrapper {
   width: 40px;
-  padding: 7px 10px;
+  padding: 6px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -568,4 +575,91 @@ li {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+}
+
+/* media screens */
+
+@media (max-width: 1130px) {
+  .items {
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+@media (max-width: 780px) {
+  .user {
+    width: 270px;
+  }
+  .login_button {
+    width: 70px;
+    padding: 7px;
+  }
+  .admin_login {
+    width: 150px;
+    padding: 7px;
+  }
+  .shop_bag {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 710px) {
+  .card {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  .item_name {
+    font-size: 12px;
+  }
+}
+@media (max-width: 565px) {
+  .user {
+    width: 185px;
+  }
+  .login_button {
+    width: 50px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  .admin_login {
+    width: 100px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  .shop_bag {
+    font-size: 28px;
+  }
+  .item_price {
+    font-size: 15px;
+  }
+  .title {
+    padding-bottom: 10px;
+  }
+}
+@media (max-width: 450px) {
+  .items {
+    grid-template-columns: repeat(1, 1fr);
+    .card {
+      width: 350px;
+      height: 350px;
+      border-radius: 10px;
+    }
+  }
+  .pagination {
+    width: 340px;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+  }
+  .page_item {
+    padding: 10px 15px;
+  }
+}
+@media (max-width: 360px) {
+  .items {
+    grid-template-columns: repeat(1, 1fr);
+    .card {
+      width: 300px;
+      height: 300px;
+      border-radius: 10px;
+    }
+  }
 }
