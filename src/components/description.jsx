@@ -1,8 +1,6 @@
 import React from "react";
 import "./description.css";
-import { Axios } from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
+
 import descriptionImage from "./51RFfemMaoL._AC_SY695_.jpg";
 
 //console.log(axios.isCancel("something"));
@@ -33,6 +31,7 @@ export default function Description(props) {
           <img
             src={descriptionImage}
             className="image"
+            alt="alt"
             width="300"
             height="300"
           />
