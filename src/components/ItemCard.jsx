@@ -88,20 +88,26 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
               </div>
 
               {itemNumber > 0 && (
-                <button onClick={deductHandler} className={styles.item_shop}>
-                  <FontAwesomeIcon
-                    icon={faMinus}
-                    className={styles.item_add_shop}
-                  />
-                </button>
+                <div className={styles.item_shop}>
+                  <button
+                    onClick={deductHandler}
+                    className={styles.item_shop_btn}>
+                    <FontAwesomeIcon
+                      icon={faMinus}
+                      className={styles.item_add_bag}
+                    />
+                  </button>
+                </div>
               )}
               {
-                <button onClick={addHandler} className={styles.item_shop}>
-                  <FontAwesomeIcon
-                    className={styles.item_add_shop}
-                    icon={faBagShopping}
-                  />
-                </button>
+                <div className={styles.item_shop}>
+                  <button onClick={addHandler} className={styles.item_shop_btn}>
+                    <FontAwesomeIcon
+                      className={styles.item_add_bag}
+                      icon={faBagShopping}
+                    />
+                  </button>
+                </div>
               }
             </div>
           </div>
