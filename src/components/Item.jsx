@@ -31,7 +31,6 @@ const Item = () => {
       return updatedItems;
     });
   };
-
   return (
     <div className={styles.item}>
       <div className={styles.item_wrapper}>
@@ -43,7 +42,12 @@ const Item = () => {
           <ul className={styles.items}>
             {/* map through products and create a list of item cards*/}
             {data.map((prod, key) => (
-              <li key={key}>
+              <li
+                onClick={(e) => {
+                  console.log(e);
+                }}
+                key={key}
+              >
                 <ItemCard
                   image={prod?.images[0]}
                   title={prod?.title}

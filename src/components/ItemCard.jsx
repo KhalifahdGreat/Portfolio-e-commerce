@@ -64,10 +64,11 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
   };
 
   return (
+    // <link to={`./${id}`}>
     <div className={styles.card_wrapper}>
       <div className={styles.card}>
         <div className={styles.img_holder}>
-          <img className={styles.card_img} src={`${image}`} alt='item' />
+          <img className={styles.card_img} src={`${image}`} alt="item" />
         </div>
         <div className={styles.details_wrapper}>
           <div className={styles.title_wrapper}>
@@ -82,7 +83,8 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
                 itemNumber === 0
                   ? styles.quantity_holder_115px
                   : styles.quantity_holder
-              }>
+              }
+            >
               <div className={styles.quantity_wrapper}>
                 <h1 className={styles.quantity}>{itemNumber}</h1>
               </div>
@@ -108,5 +110,6 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
         </div>
       </div>
     </div>
+    // </link>
   );
 };

@@ -6,6 +6,7 @@ import AdminSignUp from "./components/adminSignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AdminPage from "./components/adminPage";
 import { useState, createContext } from "react";
+import Description from "./components/description";
 import { useToggle } from "./useToggle";
 export const AppContext = createContext();
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/signup" element={<UserSignUp />} />
+            <Route path="/pageDescription" element={<Description />} />
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/admin" element={<AdminSignUp />} />
             <Route path="/adminpage" element={<AdminPage />} />
