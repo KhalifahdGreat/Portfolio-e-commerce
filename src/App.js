@@ -6,7 +6,7 @@ import AdminSignUp from "./components/adminSignUp";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AdminPage from "./components/adminPage";
 import { useState, createContext } from "react";
-import Description from "./components/description";
+import { Description } from "./components/description";
 import { useToggle } from "./useToggle";
 export const AppContext = createContext();
 function App() {
@@ -20,6 +20,10 @@ function App() {
   const [amount, setAmount] = useState(0);
   const [state, toggle] = useToggle();
   const [selectedItems, setSelectedItems] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [clickedItem, setClickedItem] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
   return (
     <AppContext.Provider
       value={{
@@ -27,22 +31,29 @@ function App() {
         setAmount,
         state,
         toggle,
+        products,
+        setProducts,
+        clickedItem,
+        setClickedItem,
+
+        selectedCategory,
+        setSelectedCategory,
+
         selectedItems,
         setSelectedItems,
-      }}
-    >
-      <QueryClientProvider client={client} v>
+      }}>
+      <QueryClientProvider client={client}>
         <Router>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/signup" element={<UserSignUp />} />
-            <Route path="/pageDescription" element={<Description />} />
-            <Route path="/homepage" element={<HomePage />} />
-            <Route path="/admin" element={<AdminSignUp />} />
-            <Route path="/adminpage" element={<AdminPage />} />
-            <Route path="/product" element={<Products />} />
-            <Route path="/login" element={<UserSignUp />} />
-            <Route path="*" element={<h1>Error 404</h1>} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/signup' element={<UserSignUp />} />
+            <Route path='/pageDescription' element={<Description />} />
+            <Route path='/homepage' element={<HomePage />} />
+            <Route path='/admin' element={<AdminSignUp />} />
+            <Route path='/adminpage' element={<AdminPage />} />
+            <Route path='/product' element={<Products />} />
+            <Route path='/login' element={<UserSignUp />} />
+            <Route path='*' element={<h1>Error 404</h1>} />
           </Routes>
         </Router>
       </QueryClientProvider>

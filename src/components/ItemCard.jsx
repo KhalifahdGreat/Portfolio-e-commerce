@@ -4,8 +4,8 @@ import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useState, useContext } from "react";
 import { AppContext } from "../App";
-
-export const ItemCard = ({ image, title, price, cartItem, id }) => {
+import { Link } from "react-router-dom";
+export const ItemCard = ({ image, title, price, cartItem, id, prod }) => {
   const [itemNumber, setItemNumber] = useState(0);
   const [hasBeenClicked, setHasBeenClicked] = useState(false);
   const { setAmount, setSelectedItems } = useContext(AppContext);
@@ -20,7 +20,7 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
         const updatedItems = prevItems.map((item) =>
           item.id === id ? { ...item, Units: 1 } : item
         );
-        console.log(updatedItems);
+        console.log(prod);
         return updatedItems;
       });
     } else {
@@ -64,12 +64,14 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
   };
 
   return (
-    // <link to={`./${id}`}>
     <div className={styles.card_wrapper}>
       <div className={styles.card}>
-        <div className={styles.img_holder}>
-          <img className={styles.card_img} src={`${image}`} alt="item" />
-        </div>
+        <Link className={styles.card_des_wrap} key={id} to='/pageDescription/'>
+          <div className={styles.img_holder}>
+            <img className={styles.card_img} src={`${image}`} alt='item' />
+          </div>
+        </Link>
+
         <div className={styles.details_wrapper}>
           <div className={styles.title_wrapper}>
             <h2 className={styles.item_name}>{title}</h2>
@@ -83,17 +85,14 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
                 itemNumber === 0
                   ? styles.quantity_holder_115px
                   : styles.quantity_holder
-              }
-            >
+              }>
               <div className={styles.quantity_wrapper}>
                 <h1 className={styles.quantity}>{itemNumber}</h1>
               </div>
 
               {itemNumber > 0 && (
-                <div className={styles.item_shop}>
-                  <button
-                    onClick={deductHandler}
-                    className={styles.item_shop_btn}>
+                <div onClick={deductHandler} className={styles.item_shop}>
+                  <button className={styles.item_shop_btn}>
                     <FontAwesomeIcon
                       icon={faMinus}
                       className={styles.item_add_bag}
@@ -102,8 +101,8 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
                 </div>
               )}
               {
-                <div className={styles.item_shop}>
-                  <button onClick={addHandler} className={styles.item_shop_btn}>
+                <div onClick={addHandler} className={styles.item_shop}>
+                  <button className={styles.item_shop_btn}>
                     <FontAwesomeIcon
                       className={styles.item_add_bag}
                       icon={faBagShopping}
@@ -116,6 +115,5 @@ export const ItemCard = ({ image, title, price, cartItem, id }) => {
         </div>
       </div>
     </div>
-    // </link>
   );
 };

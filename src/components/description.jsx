@@ -1,57 +1,30 @@
 import React from "react";
-import "./description.css";
+import styles from "../App.module.css";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
-import descriptionImage from "./51RFfemMaoL._AC_SY695_.jpg";
-
-//console.log(axios.isCancel("something"));
-
-export default function Description(props) {
-  // const loadPage = async () => {
-  //   // fetch("https://dummyjson.com/products")
-  //   //   .then((response) => console.log(response.json().Object.products))
-  //   //   .then((data) => console.log(data));
-
-  //   Axios.get("https://dummyjson.com/products")
-  //     .then(function (response) {
-  //       console.log(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     })
-  //     .finally(function () {
-  //       console.log("finished");
-  //     });
-  // };
+export const Description = () => {
+  const { clickedItem } = useContext(AppContext);
 
   return (
-    <div className="overall">
-      <p></p>
-      <div className="container">
-        <div className="column1">
+    <div className={styles.product_description}>
+      <div className={styles.product_description_wrapper} key={clickedItem.id}>
+        <div className={styles.product_description_img_holder}>
           <img
-            src={descriptionImage}
-            className="image"
-            alt="alt"
-            width="300"
-            height="300"
+            className={styles.product_description_img}
+            src={clickedItem.images[0]}
+            alt='item'
           />
         </div>
-        <div className="column2">
-          <h1 className="productName">Nike Shoes</h1>
-          <p className="visit">visit our store</p>
-
-          <h2 className="about">About this item</h2>
-          <p className="price">Price: $100</p>
-          <p className="itemDescription">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel
-            labore, possimus, architecto voluptatum voluptatem laboriosam sequi
-            porro modi maxime sed error asperiores tempore eveniet dicta
-            sapiente. Maxime laboriosam numquam deleniti in, voluptates iste
-            sapiente eaque vitae. Nisi architecto atque voluptatibus autem
-            suscipit odit cupiditate quod?
+        <div className={styles.product_description_details}>
+          <h2 className={styles.product_description_name}>
+            {clickedItem.title}
+          </h2>
+          <p className={styles.product_description_text}>
+            {clickedItem.description}
           </p>
         </div>
       </div>
     </div>
   );
-}
+};
