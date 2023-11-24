@@ -8,7 +8,7 @@ import { AppContext } from "../App";
 import Item from "./Item";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "./ShopCart";
-
+import { Category } from "./Category";
 export const Products = () => {
   const { state, toggle, selectedItems } = useContext(AppContext);
 
@@ -20,6 +20,7 @@ export const Products = () => {
     <div className={styles.shop_wrapper}>
       <Navigation
         name={"Ecommerce"}
+        category={<Category />}
         icon={
           <button onClick={cartOpenHandler} className={styles.shopping_cart}>
             {selectedItems.length > 0 && (
@@ -43,34 +44,7 @@ export const Products = () => {
           </Link>
         }
       />
-      <div
-        style={{
-          textAlign: "center",
-          marginTop: "20px",
-        }}
-      >
-        <label
-          style={{
-            fontSize: "16px",
-            width: "100px",
-          }}
-          for="cars"
-        >
-          select category:
-        </label>
 
-        <select style={{}} name="cars" id="cars">
-          <option defaultChecked value="all">
-            All
-          </option>
-          <option value="phones">Phones</option>
-          <option value="laptops">Laptops</option>
-          <option value="fragrance">Fragrance</option>
-          <option value="skincare">Skincare</option>
-          <option value="groceries">Groceries</option>
-          <option value="homeDecoration">Home Decoration</option>
-        </select>
-      </div>
       <Item />
       {state && <ShoppingCart />}
     </div>

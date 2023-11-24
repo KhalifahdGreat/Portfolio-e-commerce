@@ -1,10 +1,11 @@
+import React, { useContext, useState, useEffect } from "react";
 import styles from "../App.module.css";
 import Axios from "axios";
 import { ItemCard } from "./ItemCard";
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState, useEffect } from "react"; // Import useEffect
 import { AppContext } from "../App";
 import { Pagination } from "./Pagination";
+
 const Item = () => {
   const { data: productsData, isLoading } = useQuery({
     queryKey: ["product"],
@@ -15,10 +16,15 @@ const Item = () => {
     },
   });
 
-  const { setSelectedItems } = useContext(AppContext);
+  const {
+    setSelectedItems,
+    products,
+    setProducts,
+    clickedItem,
+    selectedCategory,
+    setClickedItem,
+  } = useContext(AppContext);
 
-  // Use state to store the products data
-  const [products, setProducts] = useState([]);
   const [currentPage, SetCurrentPage] = useState(1);
 
   const recordsPerPage = 9;
@@ -29,13 +35,11 @@ const Item = () => {
   const npage = Math.ceil(products.length / recordsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 
-  console.log(numbers);
   useEffect(() => {
-    // Update products state when data is available
     if (productsData && productsData.length > 0) {
       setProducts(productsData);
     }
-  }, [productsData]); // Use useEffect to update the state only when productsData changes
+  }, [productsData, setProducts]);
 
   if (isLoading) {
     return (
@@ -52,8 +56,11 @@ const Item = () => {
       return updatedItems;
     });
   };
-  //mmmm
-  //nnnnnn
+
+  const handleItemClick = (item) => {
+    setClickedItem(item);
+    console.log(clickedItem);
+  };
 
   return (
     <div className={styles.item}>
@@ -64,18 +71,21 @@ const Item = () => {
         {/* display items */}
         <div className={styles.item_product_wrapper}>
           <ul className={styles.items}>
-            {/* map through products and create a list of item cards*/}
-            {records.map((prod, key) => (
-              <li key={key}>
-                <ItemCard
-                  image={prod?.images[0]}
-                  title={prod?.title}
-                  price={prod?.price}
-                  cartItem={() => cartItemAddHandler(prod)}
-                  id={prod.id}
-                />
-              </li>
-            ))}
+            {(selectedCategory ? selectedCategory : records).map(
+              (prod, key) => (
+                <li onClick={() => handleItemClick(prod)} key={key}>
+                  <ItemCard
+                    image={prod?.images[0]}
+                    title={prod?.title}
+                    price={prod?.price}
+                    cartItem={() => cartItemAddHandler(prod)}
+                    description={prod.description}
+                    id={prod.id}
+                    prod={prod}
+                  />
+                </li>
+              )
+            )}
           </ul>
         </div>
         <div className={styles.pagination_wrapper}>
